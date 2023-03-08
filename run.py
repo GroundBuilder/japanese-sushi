@@ -71,6 +71,17 @@ def update_sales_worksheet(data):                       # Function to add data t
     print("Our sales is updated successfully.\n")
 
 
+def update_sureplus_worksheet(data):                # Function to add surplus data to worksheet
+    """
+    Update  the surplus worksheet, adds a new row in the worksheet 
+    with the list of data the calculation have provided.
+    """
+    print("Updating the surlplus worksheet...\n")
+    surplus_worksheet = SHEET.worksheet("surplus")
+    surplus_worksheet.append_row(data)
+    print("Our surplus is updated successfully.\n")
+
+
 def calculateing_surplus_data(sales_row):
     """
     Definition of sureplus:
@@ -85,21 +96,19 @@ def calculateing_surplus_data(sales_row):
     premanuf_row_last = premanuf[-1]                        # Get the last value of the list in premanuf.
     
     surplus_data = []
-    for premanuf, sales in zip(premanuf_row_last, sales_row):
-        surplus = int(premanuf) - sales
+    for premanuf, sales in zip(premanuf_row_last, sales_row):   # To handle the both list at the same time
+        surplus = int(premanuf) - sales                         # Calculate surplus, premanuf comes first as a str, now its a int.
         surplus_data.append(surplus)
 
     return surplus_data
-    
-
 
 
 
 data = get_all_sales_data()
 sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
 update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
-new_sureplus_data = calculateing_surplus_data(sales_data)
-print(new_sureplus_data)
+new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
+update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
 
 
 
