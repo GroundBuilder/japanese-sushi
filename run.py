@@ -71,7 +71,22 @@ def update_sales_worksheet(data):                       # Function to add data t
     print("Our sales is updated successfully.\n")
 
 
+def calculateing_surplus_data(sales_row):
+    """
+    
+    """
+    print("Calculating the sureplus data...\n")
+    premanuf = SHEET.worksheet("premanuf").get_all_values()
+    pprint(premanuf)
+
+
+
+
 data = get_all_sales_data()
 sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
 update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
+calculateing_surplus_data(sales_data)
+
+
+
 print(sales_data)
