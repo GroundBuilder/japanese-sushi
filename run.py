@@ -25,23 +25,25 @@ def get_all_sales_data():
     print("Separate the numbers by commas.")
     print("Example: 38,30,25,20,24\n")
 
-    data_str = input("Enter todays sales here: ")          #The user get a input line to write in.
-    print(f"You provided this: {data_str}")                #The user can see the input
+    data_str = input("Enter todays sales here: ")          # The user get a input line to write in.
+    print(f"You provided this: {data_str}")                # The user can see the input
 
-    sales_data = data_str.split(",")
-    print(sales_data)
+    sales_data = data_str.split(",")                       # ake the input from a string to a list.
+    check_validation_data(sales_data)
 
 
-def check_validation_data():
+def check_validation_data(values):
     """
     The input of the sales data has to be correct.
     If it's not correct, run a while loop till the 
     correct input is made. Explane what typ of input come
     and put out to the terminal what its needed.
     """
+    print(values)
+
+
+
+
 
 
 get_all_sales_data()
-
-
-
