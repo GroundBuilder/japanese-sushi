@@ -13,8 +13,8 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('japanese_sushi')
 
-order = SHEET.worksheet("order")
+order = SHEET.worksheet("sales")
 
 data = order.get_all_values()
 
-print(data)
+print(data[0])
