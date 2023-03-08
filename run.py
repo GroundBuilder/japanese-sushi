@@ -73,12 +73,24 @@ def update_sales_worksheet(data):                       # Function to add data t
 
 def calculateing_surplus_data(sales_row):
     """
-    
+    Definition of sureplus:
+    - If positive, it indicate that they had to throw away sushi.
+    - If negative, it's indicate that costumer had to wait 
+    while they made more sushi.
+
+    This function calculate how much that have been wasted or made this day.
     """
     print("Calculating the sureplus data...\n")
     premanuf = SHEET.worksheet("premanuf").get_all_values() # Get the value of premanuf in the worksheet.
-    premanuf_row_last = premanuf[-1]
-    pprint(premanuf_row_last)
+    premanuf_row_last = premanuf[-1]                        # Get the last value of the list in premanuf.
+    
+    surplus_data = []
+    for premanuf, sales in zip(premanuf_row_last, sales_row):
+        surplus = int(premanuf) - sales
+        surplus_data.append(surplus)
+
+    return surplus_data
+    
 
 
 
@@ -86,7 +98,8 @@ def calculateing_surplus_data(sales_row):
 data = get_all_sales_data()
 sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
 update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
-calculateing_surplus_data(sales_data)
+new_sureplus_data = calculateing_surplus_data(sales_data)
+print(new_sureplus_data)
 
 
 
