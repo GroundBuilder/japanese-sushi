@@ -60,6 +60,18 @@ def check_validation_data(values):
     return True
 
 
+def update_sales_worksheet(data):                       # Function to add data to worksheet
+    """
+    Update  the sales worksheet, adds a new row in the worksheet 
+    with the list of data the user have provided.
+    """
+    print("Updating the sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.append_row(data)
+    print("Our sales is updated successfully.\n")
+
+
 data = get_all_sales_data()
-sales_data = [int(num) for num in data]
+sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
+update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
 print(sales_data)
