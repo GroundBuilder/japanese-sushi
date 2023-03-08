@@ -40,6 +40,7 @@ def check_validation_data(values):
     and put out to the terminal what its needed.
     """
     try:
+        [int(value.strip()) for value in values]
         if len(values) != 5:                                # Provide an error if user don't add 5 values.
             raise ValueError(
                 f"Expected 5 values, you provided {len(values)}.\n"
