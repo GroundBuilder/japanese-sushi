@@ -20,6 +20,16 @@ def get_all_sales_data():
     """
     User make input of how much the sold after 1pm.
     """
+    print("Welcome, please enter todays lunch data.")      #Text for the user.
+    print("In the order: Omakase, Moriawase, Salmon, Vegetarian, Poké Bowl") 
+    print("Separate the numbers by commas.")
+    print("Example: 38,30,25,20,24\n")
+
+    data_str = input("Enter todays sales here: ")          #The user get a input line to write in.
+    print(f"You provided this: {data_str}")                #The user can see the input
+
+    sales_data = data_str.split(",")
+    print(sales_data)
 
 
 def check_validation_data():
@@ -29,15 +39,9 @@ def check_validation_data():
     correct input is made. Explane what typ of input come
     and put out to the terminal what its needed.
     """
-    print("Welcome, please enter todays lunch data.")
-    print("In the order: Omakase, Moriawase, Salmon, Vegetarian, Poké Bowl")
-    print("Separate the numbers by commas.")
-    print("Example: 38,30,25,20,24\n")
 
-    data_str = input("Enter todays sales here: \n")
-    print(f"You provided this: {data_str}")
 
-check_validation_data()
+get_all_sales_data()
 
 
 
