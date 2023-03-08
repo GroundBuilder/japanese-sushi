@@ -4,6 +4,10 @@ Welcome GroundBuilder,
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
 
+## Wireframe
+
+![Flow](docs/readme_images/WireframeSushiBar.png)
+
 ## Reminders
 
 * Your code must be placed in the `run.py` file
