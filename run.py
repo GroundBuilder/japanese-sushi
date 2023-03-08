@@ -79,7 +79,7 @@ def update_sureplus_worksheet(data):                # Function to add surplus da
     print("Updating the surlplus worksheet...\n")
     surplus_worksheet = SHEET.worksheet("surplus")
     surplus_worksheet.append_row(data)
-    print("Our surplus is updated successfully.\n")
+    print("Your surplus is updated successfully.\n")
 
 
 def calculateing_surplus_data(sales_row):
@@ -102,14 +102,28 @@ def calculateing_surplus_data(sales_row):
 
     return surplus_data
 
+def get_last_3_sales():
+    """
+    This collect the last 3 collumns of data from the sales worksheet
+    for eash sushi-type.
+    """
+    sales = SHEET.worksheet("sales")
+    column = []
+    for i in range(6):
+        # column = sales.col_values(ind)
+        # columns.append(column[-3:])
+        print(column)
+        
 
 
-data = get_all_sales_data()
-sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
-update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
-new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
-update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
+def main():
+    data = get_all_sales_data()
+    sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
+    update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
+    new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
+    update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
 
 
 
-print(sales_data)
+# main()
+get_last_3_sales()
