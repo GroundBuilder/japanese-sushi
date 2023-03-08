@@ -20,17 +20,26 @@ def get_all_sales_data():
     """
     User make input of how much the sold after 1pm.
     """
-    print("Welcome, please enter todays lunch data.")       #Text for the user.
-    print("In the order: Omakase, Moriawase, Salmon, Vegetarian, Poké Bowl") 
-    print("Separate the numbers by commas.")
-    print("Example: 38,30,25,20,24\n")
+    while True:                                                  # Makes a loop if user get the wrong input
 
-    data_str = input("Enter todays sales here: ")           # The user get a input line to write in.
-    print(f"You provided this: {data_str}")                 # The user can see the input
+        print("\nWelcome, please enter todays lunch data.")      #Text for the user.
+        print("In the order: Omakase, Moriawase, Salmon, Vegetarian, Poké Bowl") 
+        print("Separate the 5 numbers by commas.")
+        print("Example: 38,30,25,20,24\n")
 
-    sales_data = data_str.split(",")                        # Take the input from a string to a list.
-    check_validation_data(sales_data)                       # Pass data to the next function.
+        data_str = input("Enter todays sales here: ")           # The user get a input line to write in.
+        print(f"You provided this: {data_str}")                 # The user can see the input
 
+        sales_data = data_str.split(",")                        # Take the input from a string to a list.
+        
+
+        if check_validation_data(sales_data):                   # Pass data to the next function.
+            print("Data is valid")
+            break                                               
+
+    return sales_data
+
+data = sales_data
 
 def check_validation_data(values):
     """
@@ -40,13 +49,16 @@ def check_validation_data(values):
     and put out to the terminal what its needed.
     """
     try:
-        [int(value.strip()) for value in values]
-        if len(values) != 5:                                # Provide an error if user don't add 5 values.
+        [int(value.strip()) for value in values]               # Provide the value to be a integer and remove white spaces.
+        if len(values) != 5:                                   # Provide an error if user don't add 5 values.
             raise ValueError(
                 f"Expected 5 values, you provided {len(values)}.\n"
             )
     except ValueError as e:
-        print(f"Invalid data: {e}Please try again.")
+        print(f"Invalid data: {e}Please try again.\n")
+        return False
+
+    return True
 
 
     print(values)
