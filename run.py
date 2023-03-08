@@ -76,8 +76,9 @@ def calculateing_surplus_data(sales_row):
     
     """
     print("Calculating the sureplus data...\n")
-    premanuf = SHEET.worksheet("premanuf").get_all_values()
-    pprint(premanuf)
+    premanuf = SHEET.worksheet("premanuf").get_all_values() # Get the value of premanuf in the worksheet.
+    premanuf_row_last = premanuf[-1]
+    pprint(premanuf_row_last)
 
 
 
