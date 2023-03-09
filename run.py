@@ -115,9 +115,10 @@ def get_last_3_sales():
     
     return columns                                  # Sett the value to the function
         
-def calculate_premanuf_data(data):
+def calculate_premanuf_data(data):                  # Calculat the premanufactury value
     """
-    Finds the average premanufacturing value for each item. 
+    Finds the average premanufacturing of 3 and 
+    the value for each item. 
     Then adding aditional 5%
     """
     print("Calculating stock data...")
@@ -126,7 +127,8 @@ def calculate_premanuf_data(data):
     for column in data:
         int_column = [int(num) for num in column]
         average = sum(int_column) / len(int_column)
-        new_premauf_data.append(int_column)
+        premanuf_num = round(average * 1.05)
+        new_premauf_data.append(premanuf_num)
 
     pprint(new_premauf_data)
 
