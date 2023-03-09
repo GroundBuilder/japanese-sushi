@@ -143,6 +143,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
 
     return new_premauf_data
 
+
 def get_premanuf_values(data):                  # Get visual for user what to make next day
     """
     Print to user the calculated premanuf numbers for each sushi.
@@ -155,11 +156,27 @@ def get_premanuf_values(data):                  # Get visual for user what to ma
         new_data[heading] = premanuf_num
 
     return new_data
+
+def get_waste_cost_data(data):
+
+def get_data_deleted():
+    """
+    Ask if its true, else will delete the data that was just inputed.
+    """
+
+    while True:
+        print("\nIs you input correct?\nPress (n) = No, to delete and start over\nPress (y) = Yes, to exit your data here")
+
+
+        data_str = input("Press (n) or (y):\n")
+        print(f"You pressed: {data_str}")
+        
+
+        if validate_data(data_str):
+            print("Data is deleted")
+            break
     
-    
-
-
-
+    return False  
 
 def main():
     data = get_all_sales_data()
@@ -172,7 +189,6 @@ def main():
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)
     print(premanuf_values)
-
+    get_waste_cost_data()
 
 main()
-
