@@ -143,22 +143,19 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
 
     return new_premauf_data
 
-def get_premanuf_values(data):
+def get_premanuf_values(data):                  # Get visual for user what to make next day
     """
     Print to user the calculated premanuf numbers for each sushi.
     """
-    # headings = SHEET.worksheet("premanuf").get_all_values()[0]
-
-    headings = SHEET.worksheet('premanuf').row_values(1)
-
+    headings = SHEET.worksheet('premanuf').row_values(1)    # Get headings for the sushi type
     print("Make the following sushi for the next day:\n")
 
     new_data = {}
     for heading, premanuf_num in zip(headings, data):
         new_data[heading] = premanuf_num
+
     return new_data
     
-    # return {heading: data for heading, data in zip(headings, data)}
     
 
 
@@ -166,7 +163,7 @@ def get_premanuf_values(data):
 
 def main():
     data = get_all_sales_data()
-    sales_data = [int(num) for num in data]                 # Make the list values to nubers instead of strings value"
+    sales_data = [int(num) for num in data]                 # Make the list values to numbers instead of strings value"
     update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
