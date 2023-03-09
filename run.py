@@ -121,7 +121,14 @@ def calculate_premanuf_data(data):
     Then adding aditional 5%
     """
     print("Calculating stock data...")
-    new_premauf_data = 
+    
+    new_premauf_data = []
+    for column in data:
+        int_column = [int(num) for num in column]
+        average = sum(int_column) / len(int_column)
+        new_premauf_data.append(int_column)
+
+    pprint(new_premauf_data)
 
 
 
