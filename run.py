@@ -157,7 +157,6 @@ def get_premanuf_values(data):                  # Get visual for user what to ma
 
     return new_data
 
-def get_waste_cost_data(data):
 
 def get_data_deleted():
     """
@@ -178,6 +177,7 @@ def get_data_deleted():
     
     return False  
 
+
 def main():
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                 # Make the list values to numbers instead of strings value"
@@ -189,6 +189,7 @@ def main():
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)
     print(premanuf_values)
-    get_waste_cost_data()
+    # get_waste_cost_data()
+    get_data_deleted()
 
 main()
