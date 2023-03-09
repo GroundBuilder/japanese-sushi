@@ -27,7 +27,7 @@ def get_all_sales_data():
         print("Separate the 5 numbers by commas.")
         print("Example: 38,30,25,20,24\n")
 
-        data_str = input("Enter todays sales here: \")     # The user get a input line to write in.
+        data_str = input("Enter todays sales here: \n")     # The user get a input line to write in.
         print(f"You provided this: {data_str}")           # The user can see the input.
 
         sales_data = data_str.split(",")                  # Take the input from a string to a list.
@@ -132,7 +132,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
     the value for each item. 
     Then adding aditional 5%
     """
-    print("Calculating stock data...")
+    print("Calculating premanuf data...\n")
     
     new_premauf_data = []
     for column in data:
