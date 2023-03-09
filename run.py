@@ -104,16 +104,23 @@ def calculateing_surplus_data(sales_row):
 
 def get_last_3_sales():
     """
-    This collect the last 3 collumns of data from the sales worksheet
+    This collect the last 3 columns of data from the sales worksheet
     for eash sushi-type.
     """
-    sales = SHEET.worksheet("sales")
-    columns = []
-    for ind in range(1,6):
-        column = sales.col_values(ind)
-        columns.append(column[-3:])
-    pprint(columns)
+    sales = SHEET.worksheet("sales")                # Get data from the worksheet
+    columns = []                                    # Empty variable
+    for ind in range(1,6):                          # Loop throug numbers 1-5
+        column = sales.col_values(ind)              
+        columns.append(column[-3:])                 # -3, To get the latest input from the workcheet
+    
+    return columns                                  # Sett the value to the function
         
+def calculate_premanuf_data(data):
+    """
+    """
+    print("Calculating stock data...")
+    new_premauf_data = 
+
 
 
 def main():
@@ -122,8 +129,10 @@ def main():
     update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
+sales_columns = get_last_3_sales()
+calculate_premanuf_data(sales_columns)
 
 
 
 # main()
-get_last_3_sales()
+
