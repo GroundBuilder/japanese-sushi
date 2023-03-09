@@ -27,7 +27,7 @@ def get_all_sales_data():
         print("Separate the 5 numbers by commas.")
         print("Example: 38,30,25,20,24\n")
 
-        data_str = input("Enter todays sales here: ")     # The user get a input line to write in.
+        data_str = input("Enter todays sales here: \")     # The user get a input line to write in.
         print(f"You provided this: {data_str}")           # The user can see the input.
 
         sales_data = data_str.split(",")                  # Take the input from a string to a list.
@@ -82,7 +82,18 @@ def update_sureplus_worksheet(data):                # Function to add surplus da
     print("Your surplus is updated successfully.\n")
 
 
-def calculateing_surplus_data(sales_row):
+def update_premanuf_worksheet(data):                # Function to add premanuf data to worksheet
+    """
+    Update  the premanuf worksheet, adds a new row in the worksheet 
+    with the list of data the calculation have provided.
+    """
+    print("Updating the premanuf worksheet...\n")
+    premanuf_worksheet = SHEET.worksheet("premanuf")
+    premanuf_worksheet.append_row(data)
+    print("Your premanuf is updated successfully.\n")
+
+
+def calculateing_surplus_data(sales_row): 
     """
     Definition of sureplus:
     - If positive, it indicate that they had to throw away sushi.
@@ -130,7 +141,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
         premanuf_num = round(average * 1.05)
         new_premauf_data.append(premanuf_num)
 
-    pprint(new_premauf_data)
+    return new_premauf_data
 
 
 
@@ -140,10 +151,11 @@ def main():
     update_sales_worksheet(sales_data)                      # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data) # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)             # Pass datat to the function
-sales_columns = get_last_3_sales()
-calculate_premanuf_data(sales_columns)
+    sales_columns = get_last_3_sales()
+    premanuf_data = calculate_premanuf_data(sales_columns)
+    update_premanuf_worksheet(premanuf_data)
 
 
 
-# main()
+main()
 
