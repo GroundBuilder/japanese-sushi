@@ -117,6 +117,8 @@ def get_last_3_sales():
         
 def calculate_premanuf_data(data):
     """
+    Finds the average premanufacturing value for each item. 
+    Then adding aditional 5%
     """
     print("Calculating stock data...")
     new_premauf_data = 
