@@ -143,6 +143,25 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
 
     return new_premauf_data
 
+def get_premanuf_values(data):
+    """
+    Print to user the calculated premanuf numbers for each sushi.
+    """
+    # headings = SHEET.worksheet("premanuf").get_all_values()[0]
+
+    headings = SHEET.worksheet('premanuf').row_values(1)
+
+    print("Make the following sushi for the next day:\n")
+
+    new_data = {}
+    for heading, premanuf_num in zip(headings, data):
+        new_data[heading] = premanuf_num
+    return new_data
+    
+    # return {heading: data for heading, data in zip(headings, data)}
+    
+
+
 
 
 def main():
@@ -154,7 +173,8 @@ def main():
     sales_columns = get_last_3_sales()
     premanuf_data = calculate_premanuf_data(sales_columns)
     update_premanuf_worksheet(premanuf_data)
-
+    premanuf_values = get_premanuf_values(premanuf_data)
+    print(premanuf_values)
 
 
 main()
