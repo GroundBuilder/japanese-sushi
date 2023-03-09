@@ -108,11 +108,11 @@ def get_last_3_sales():
     for eash sushi-type.
     """
     sales = SHEET.worksheet("sales")
-    column = []
-    for i in range(6):
-        # column = sales.col_values(ind)
-        # columns.append(column[-3:])
-        print(column)
+    columns = []
+    for ind in range(1,6):
+        column = sales.col_values(ind)
+        columns.append(column[-3:])
+    pprint(columns)
         
 
 
