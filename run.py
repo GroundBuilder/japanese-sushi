@@ -164,16 +164,18 @@ def get_data_deleted():
     """
     print("Do you want to delete?")
     result_del = (input("Enter (y/n): \n")).upper()
-    if result_del is "Y":
-        print(f"\n{result}")
-        
-    elif result is "N":
+    if result_del == "Y":
+        print(f"\nYou pressed: {result_del}\n")
+        get_data_deleted()
         print("\nData has been deleted")
+
+    elif result_del == "N":
+        print("\nPress Enter to quit...\n")
         
         
     else:
         get_data_deleted()
-    input("\nPress any key to continue...\n")
+    input("\nPress any key to quit...\n")
 
 
 # def check_validation_delete():  
