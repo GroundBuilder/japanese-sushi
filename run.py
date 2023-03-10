@@ -162,20 +162,21 @@ def get_data_deleted():
     """
     Ask if its true, else will delete the data that was just inputed.
     """
-
-    while True:
-        print("\nIs you input correct?\nPress (n) = No, to delete and start over\nPress (y) = Yes, to exit your data here")
-
-
-        data_str = input("Press (n) or (y):\n")
-        print(f"You pressed: {data_str}")
+    print("Do you want to delete?")
+    result_del = (input("Enter (y/n): \n")).upper()
+    if result_del is "Y":
+        print(f"\n{result}")
         
+    elif result is "N":
+        print("\nData has been deleted")
+        
+        
+    else:
+        get_data_deleted()
+    input("\nPress any key to continue...\n")
 
-        if validate_data(data_str):
-            print("Data is deleted")
-            break
-    
-    return False  
+
+# def check_validation_delete():  
 
 
 def main():
