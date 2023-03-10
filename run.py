@@ -158,7 +158,7 @@ def get_premanuf_values(data):                  # Get visual for user what to ma
     return new_data
 
 
-def get_data_deleted():
+def get_data_deleted():                         # Ask if user whant to delet the input with a yes or a no.
     """
     Ask if its true, else will delete the data that was just inputed.
     """
@@ -166,19 +166,25 @@ def get_data_deleted():
     result_del = (input("Enter (y/n): \n")).upper()
     if result_del == "Y":
         print(f"\nYou pressed: {result_del}\n")
-        get_data_deleted()
+        check_validation_delete()
         print("\nData has been deleted")
 
     elif result_del == "N":
         print("\nPress Enter to quit...\n")
-        
         
     else:
         get_data_deleted()
     input("\nPress any key to quit...\n")
 
 
-# def check_validation_delete():  
+def check_validation_delete():
+    surplus_worksheet = SHEET.worksheet("surplus")
+    surplus_worksheet.pop()
+    premanuf_worksheet = SHEET.worksheet("premanuf")
+    premanuf_worksheet.pop()
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.pop()
+
 
 
 def main():
