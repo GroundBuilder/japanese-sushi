@@ -177,14 +177,16 @@ def get_data_deleted():                         # Ask if user whant to delet the
     input("\nPress any key to quit...\n")
 
 
-def check_validation_delete():
+def check_validation_delete():                      # When function calls it delete the last row in the selected sheets.
     surplus_worksheet = SHEET.worksheet("surplus")
-    surplus_worksheet.pop()
+    rows_sur = surplus_worksheet.row_count
+    surplus_worksheet.delete_rows(rows_sur)
     premanuf_worksheet = SHEET.worksheet("premanuf")
-    premanuf_worksheet.pop()
-    sales_worksheet = SHEET.worksheet("sales")
-    sales_worksheet.pop()
-
+    rows_pre = remanuf_worksheet.row_count
+    premanuf_worksheet.delete_rows(rows_pre)
+    ales_worksheet = SHEET.worksheet("sales")
+    rows_sal = sales_worksheet.row_count
+    sales_worksheet.delete_rows(row_sal)
 
 
 def main():
@@ -198,7 +200,7 @@ def main():
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)
     print(premanuf_values)
-    # get_waste_cost_data()
+    # get_profit_today()
     get_data_deleted()
-
+    
 main()
