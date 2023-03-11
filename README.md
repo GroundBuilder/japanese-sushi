@@ -1,8 +1,50 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Sushi bar surplus!
 
-Welcome GroundBuilder,
+![PNG of App](docs/readme_images/herokuapp_sushi.png)
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+## Table of fontents
+
+* [Introduction](#Introduction)
+    * [Site goals](#Site-goals)
+    * [Target business](#Target-business)
+    * [User stories](#User-stories)
+    * [Features planned](#Features-Planned)
+* [Structure](#Structure)
+    * [Features](#Features)
+    * [Features left to Implement](#Features-Left-to-Implement)
+* [Logical Flow](#Logical-Flow)
+* [Technologies](#Technologies)
+* [Testing](#Testing)
+    * [Functional Testing](#Functional-Testing)
+    * [Pep8 Validation](#Pep8-Validation)
+    * [Bugs and Fixes](#Bugs-and-Fixes)
+* [Deployment](#Deployment)
+    * [Version Control](#Version-Control)
+    * [Heroku Deployment](#Heroku-Deployment)
+    * [Clone Locally](Clone-Locally)
+* [Credits](#Credits)
+  * [Content](#Content)
+
+
+## Introduction
+
+This project was created to get the small sushi bar input in how much they need to premanufacturing till the next day. So the customers doesn't need to wait to get their lunch.
+
+### Site goals
+
+* Simpel program for the user to send input for how much they have sold and get input how much to premanufactur next day. Just to optimize their business.
+
+### Target business
+
+* Let small business get benefits of technologi to optimize their business with a low cost.
+
+### User stories
+
+* As a user, I want a easy way to put in my data and recieve new data for next days.
+* As a user, I want to get back if I enter worng sales data to the program.
+* As a user, I want to see what I enterd, so I can correct the values that was handled in to the program.
+* As a user, I want to like follow how the program is working while I wait for the input to premanufacturing.
+* As a user, I want to exit the program in the beginning, if I forgot to take in every data.
 
 ## Wireframe
 
