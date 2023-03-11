@@ -11,8 +11,7 @@
     * [Features planned](#Features-planned)
 * [Structure](#Structure)
     * [Features](#Features)
-    * [Features left to Implement](#Features-Left-to-Implement)
-* [Logical Flow](#Logical-Flow)
+* [Flowchart](#Flowchart)
 * [Technologies](#Technologies)
 * [Testing](#Testing)
     * [Functional Testing](#Functional-Testing)
@@ -55,9 +54,53 @@ This project was created to get the small sushi bar input in how much they need 
 
 The input for the user is folowing the structure of the flowcart. The flowcart is created my using the Balsamico program. 
 
-## Wireframe
+
+### Features
+
+User story
+- As a user, I want a easy way to put in my data and recieve new data for next days.
+![PNG of App](docs/readme_images/herokuapp_sushi.png)
+
+- As a user, I want to get back if I enter worng sales data to the program.
+![PNG of wrong input](docs/readme_images/herokuapp_wron_input.png)
+
+- As a user, I want to see what I enterd, so I can correct the values that was handled in to the program.
+![PNG of valid/visual input](docs/readme_images/herokuapp_valid_input.png)
+
+- As a user, I want to like follow how the program is working while I wait for the input to premanufacturing.
+![PNG of progress](docs/readme_images/herokuapp_progress.png)
+
+- As a user, I want to exit the program in the beginning, if I forgot to take in every data.
+![PNG of progress](docs/readme_images/herokuapp_correct_and_delete.png)
+
+
+## Flowchart
+
+The Flowchart for my program was created using Balasamiq and it visually represents how the flow system works.
 
 ![Flow](docs/readme_images/WireframeSushiBar.png)
+
+## Technologies
+
+* Python - The main language used to build this application
+    * Python package:
+        * Gspread - To access and creat and delete rows in the google spreadsheet.
+
+## Testing
+
+## VALIDATORS TESTING  
+### PEP8 CI Python Linter - Validator
+I tested my Python code and there are no errors. There were E501, cause it's comments on the code in the same line.
+https://pep8ci.herokuapp.com/
+![PEP8](docs/test_images/Pep8_ok.png)
+
+### HTML Validator
+Not done, cause there is no web-page. The one is through Heroku.
+
+### CSS Validator
+The whole website was tested and its free from errors in CSS.
+<img src="assets/images/css_valid.JPG" width="70%">
+
 
 ## Reminders
 
