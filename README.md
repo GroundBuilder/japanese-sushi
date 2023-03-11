@@ -25,7 +25,7 @@
     * [Clone Locally](Clone-Locally)
 * [Credits](#Credits)
   * [Content](#Content)
-* [Acknowledgements](#Acknowledgements)
+* [Acknowledgments](#Acknowledgments)
 
 
 ## Introduction
@@ -193,6 +193,6 @@ The project will now of been cloned on your local machine for use.
 - [Love Sandwish][https://learn.codeinstitute.net/] Inspiration of struction and idea of back-end solution.
 
 
-## Acknowledgements
+## Acknowledgments
 ***
 A huge thank you to my mentor Gareth for your help and support that kept me motivated.
