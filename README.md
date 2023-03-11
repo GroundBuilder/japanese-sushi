@@ -8,7 +8,7 @@
     * [Site goals](#Site-goals)
     * [Target business](#Target-business)
     * [User stories](#User-stories)
-    * [Features planned](#Features-Planned)
+    * [Features planned](#Features-planned)
 * [Structure](#Structure)
     * [Features](#Features)
     * [Features left to Implement](#Features-Left-to-Implement)
@@ -45,6 +45,15 @@ This project was created to get the small sushi bar input in how much they need 
 * As a user, I want to see what I enterd, so I can correct the values that was handled in to the program.
 * As a user, I want to like follow how the program is working while I wait for the input to premanufacturing.
 * As a user, I want to exit the program in the beginning, if I forgot to take in every data.
+
+### Features planned
+
+* Return profit for todays sale.
+* Return wast cost of sushi that din't get sold under lunch time.
+
+## Structure
+
+The input for the user is folowing the structure of the flowcart. The flowcart is created my using the Balsamico program. 
 
 ## Wireframe
 
