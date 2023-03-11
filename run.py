@@ -16,6 +16,25 @@ SHEET = GSPREAD_CLIENT.open('japanese_sushi')
 order = SHEET.worksheet("sales")
 data_one = order.get_all_values()
 
+
+def get_enter_input():                         # Ask if user want to put in todays sales.
+    """
+    Ask if user want to put in todays sales.
+    """
+    print("Do you want to enter toadays sushi sales?\n")
+    result_del = (input("Enter (y/n): \n")).upper()
+    if result_del == "Y":
+        print(f"\nYou pressed: {result_del}\n")
+        print("\nYou will enter now!\n")
+        main()
+        
+    elif result_del == "N":
+        print("\nWelcome back next time!\n")
+        
+    else:
+        main()
+
+
 def get_all_sales_data():
     """
     User make input of how much the sold after 1pm.
@@ -175,6 +194,7 @@ def get_data_deleted():                         # Ask if user whant to delet the
         print("\nWelcome back next salesday!!!\n")
         
     else:
+        print("Did not press (Y/N), try again.")
         get_data_deleted()
 
 
@@ -201,7 +221,6 @@ def main():
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)
     print(premanuf_values)
-    # get_profit_today()
     get_data_deleted()
     
-main()
+get_enter_input()
