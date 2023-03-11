@@ -3,7 +3,7 @@
 ![PNG of App](docs/readme_images/herokuapp_sushi.png)
 
 ## Table of fontents
-
+***
 * [Introduction](#Introduction)
     * [Site goals](#Site-goals)
     * [Target business](#Target-business)
@@ -18,7 +18,7 @@
     * [HTML validator](#HTML-validator)
     * [CSS validator](#CSS-validator)
     * [Manual testing](#Manual-testing)
-    * [Bugs and Fixes](#Bugs-and-Fixes)
+    * [Bugs and fixes](#Bugs-and-fixes)
 * [Deployment](#Deployment)
     * [Version Control](#Version-Control)
     * [Heroku Deployment](#Heroku-Deployment)
@@ -28,7 +28,7 @@
 
 
 ## Introduction
-
+***
 This project was created to get the small sushi bar input in how much they need to premanufacturing till the next day. So the customers doesn't need to wait to get their lunch.
 
 ### Site goals
@@ -89,7 +89,7 @@ The Flowchart for my program was created using Balasamiq and it visually represe
         * Gspread - To access and creat and delete rows in the google spreadsheet.
 
 ## Testing
- 
+***
 ### PEP8 CI Python Linter - Validator
 I tested my Python code and there are no errors. There were E501, cause it's comments on the code in the same line.
 https://pep8ci.herokuapp.com/
@@ -118,34 +118,58 @@ Not done, cause there is no web-page. The one is through Heroku.
 | Input is corrrect    | The spreadsheet of sales is updated correctly                                                    |   Yes  |
 | Input is corrrect    | The spreadsheet of surplus is updated correctly                                                    |   Yes  |
 | Input is corrrect    | The spreadsheet of remauf is updated correctly                                                    |   Yes  |
+| Input is result      | Dispays what suggestion of next day to premanufactur                                                |   Yes  |
+| End delete Question  | Dispays a quiestom with (y/n)                                                                      |   Yes  |
+| End delete Question  | User press "n" or capital "N"                                                                      |   Yes  |
+| End delete Question  | Dispays a thank you when user don't want to delete its input.                                      |   Yes  |
+| End delete Question  | User press "Y" or "y" to delete, and shows what letter was enterd                                   |   Yes  |
+| End delete Question  | Dispays for the user that the data is deleted                                                        |   Yes  |
+| End delete Question  | The speadsheef of the lates data is deleted in sales.                                              |   Yes  |
+| End delete Question  | The speadsheef of the lates data is deleted in surplus.                                              |   Yes  |
+| End delete Question  | The speadsheef of the lates data is deleted in premanuf.                                              |   Yes  |
+| End delete Question  | User gets to the beginning to make correct input after the data is deleted.                           |   Yes  |
 
+### Bugs and fixes
 
+After the worksheet was woriking prefect and after a while the program din't work any more. The worksheet didn't work any more. But after a while, I notis in the worksheet that data was comming in the wrong column. And that was cause I did some notes in the worksheet.
 
+Trying to delet the last row where the last input had come didn't work in the beginning. The lengt of the column whas the hole spreadsheet. It got solved when all rows that was not use was deleted. And adding new rows no problem either.
 
+Bugs that appear along whit the coding was fixed as the progress when on.
 
+## Deployment
+***
+### Version Control
+The site was created using the GitPod web Code editor and pushed to github to the remote repository.
 
-## Reminders
+The following git commands were used throughout development to push code to the remote repo:
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+` git add <file> ` - This command was used to add the file(s) to the staging area before they are committed.
+` git commit -m "message" ` - This command was used to commit changes to the local repository queue ready for the final step.
+` git push ` - This command was used to push all committed code to the remote repository on github.
 
-## Creating the Heroku app
+### Heroku Deployment
+The below steps were followed to deploy this project to Heroku:
+* Go to Heroku and click "New" to create a new app.
+* Choose an app name and region region, click "Create app".
+* Go to "Settings" and navigate to Config Vars. Add the following config variables:
+    * PORT : 8000
+    * CREDS : Copy your "creds.json"-data
+* Navigate to Buildpacks and add buildpacks for Python and NodeJS (in that order).
+* Navigate to "Deploy". Set the deployment method to Github and enter repository name and connect.
+* Scroll down to Manual Deploy, select "main" branch and click "Deploy Branch".
+* The app will now be deployed to heroku
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+### Clone Locally
+Navigate to the GitHub Repository you want to clone to use locally:
 
-1. `heroku/python`
-2. `heroku/nodejs`
+Click on the code drop down button
+- Click on HTTPS
+- Copy the repository link to the clipboard
+- Open your IDE of choice (git must be installed for the next steps)
+    - ` git clone https://github.com/GroundBuilder/japanese-sushi `
+- Type git clone copied-git-url into the IDE terminal
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+The project will now of been cloned on your local machine for use.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
-
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+## Credits
