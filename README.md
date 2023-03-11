@@ -25,6 +25,7 @@
     * [Clone Locally](Clone-Locally)
 * [Credits](#Credits)
   * [Content](#Content)
+* [Acknowledgements](#Acknowledgements)
 
 
 ## Introduction
@@ -53,7 +54,7 @@ This project was created to get the small sushi bar input in how much they need 
 * Return wast cost of sushi that din't get sold under lunch time.
 
 ## Structure
-
+***
 The input for the user is folowing the structure of the flowcart. The flowcart is created my using the Balsamico program. 
 
 
@@ -61,29 +62,39 @@ The input for the user is folowing the structure of the flowcart. The flowcart i
 
 User story
 - As a user, I want a easy way to put in my data and recieve new data for next days.
+
 ![PNG of App](docs/readme_images/herokuapp_sushi.png)
 
+
 - As a user, I want to get back if I enter worng sales data to the program.
+
 ![PNG of wrong input](docs/readme_images/herokuapp_wron_input.png)
 
+
 - As a user, I want to see what I enterd, so I can correct the values that was handled in to the program.
+
 ![PNG of valid/visual input](docs/readme_images/herokuapp_valid_input.png)
 
+
 - As a user, I want to like follow how the program is working while I wait for the input to premanufacturing.
+
 ![PNG of progress](docs/readme_images/herokuapp_progress.png)
 
+
 - As a user, I want to exit the program in the beginning, if I forgot to take in every data.
+
 ![PNG of progress](docs/readme_images/herokuapp_correct_and_delete.png)
 
 
-## Flowchart
 
+## Flowchart
+***
 The Flowchart for my program was created using Balasamiq and it visually represents how the flow system works.
 
 ![Flow](docs/readme_images/WireframeSushiBar.png)
 
 ## Technologies
-
+***
 * Python - The main language used to build this application
     * Python package:
         * Gspread - To access and creat and delete rows in the google spreadsheet.
@@ -173,3 +184,14 @@ Click on the code drop down button
 The project will now of been cloned on your local machine for use.
 
 ## Credits
+***
+### Content
+
+- [gspread](https://docs.gspread.org/) find way to get to worksheet data.
+- [Code Institute][https://learn.codeinstitute.net/] learn how to code python
+- [Love Sandwish][https://learn.codeinstitute.net/] Inspiration of struction and idea of back-end solution.
+
+
+## Acknowledgements
+***
+A huge thank you to my mentor Gareth for your help and support that kept me motivated.

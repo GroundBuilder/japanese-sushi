@@ -38,6 +38,7 @@ def get_enter_input():                         # Ask if user want to put in toda
 def get_all_sales_data():
     """
     User make input of how much the sold after 1pm.
+    Cred. CI - Love sandwiches.
     """
     while True:                                         # Makes a loop if user get the wrong input
 
@@ -64,6 +65,7 @@ def check_validation_data(values):
     If it's not correct, run a while loop till the
     correct input is made. Explane what typ of input come
     and put out to the terminal what its needed.
+    Cred. CI - Love sandwiches.
     """
     try:
         [int(value.strip()) for value in values]        # Provide the value to be a integer and remove white spaces.
@@ -82,6 +84,7 @@ def update_sales_worksheet(data):                       # Function to add data t
     """
     Update  the sales worksheet, adds a new row in the worksheet
     with the list of data the user have provided.
+    Cred. CI - Love sandwiches.
     """
     print("Updating the sales worksheet...\n")
     sales_worksheet = SHEET.worksheet("sales")
@@ -93,6 +96,7 @@ def update_sureplus_worksheet(data):                # Function to add surplus da
     """
     Update  the surplus worksheet, adds a new row in the worksheet
     with the list of data the calculation have provided.
+    Cred. CI - Love sandwiches.
     """
     print("Updating the surlplus worksheet...\n")
     surplus_worksheet = SHEET.worksheet("surplus")
@@ -104,6 +108,7 @@ def update_premanuf_worksheet(data):                # Function to add premanuf d
     """
     Update  the premanuf worksheet, adds a new row in the worksheet
     with the list of data the calculation have provided.
+    Cred. CI - Love sandwiches.
     """
     print("Updating the premanuf worksheet...\n")
     premanuf_worksheet = SHEET.worksheet("premanuf")
@@ -119,6 +124,7 @@ def calculateing_surplus_data(sales_row):
     while they made more sushi.
 
     This function calculate how much that have been wasted or made this day.
+    Cred. CI - Love sandwiches.
     """
     print("Calculating the sureplus data...\n")
 
@@ -136,7 +142,7 @@ def calculateing_surplus_data(sales_row):
 def get_last_3_sales():
     """
     This collect the last 3 columns of data from the sales worksheet
-    for eash sushi-type.
+    for eash sushi-type. Cred. CI - Love sandwiches.
     """
     sales = SHEET.worksheet("sales")                # Get data from the worksheet
     columns = []                                    # Empty variable
@@ -151,7 +157,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
     """
     Finds the average premanufacturing of 3 and
     the value for each item.
-    Then adding aditional 5%
+    Then adding aditional 5%. Cred. CI - Love sandwiches.
     """
     print("Calculating premanuf data...\n")
 
@@ -167,7 +173,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
 
 def get_premanuf_values(data):                  # Get visual for user what to make next day
     """
-    Print to user the calculated premanuf numbers for each sushi.
+    Print to user the calculated premanuf numbers for each sushi. Cred. CI - Love sandwiches.
     """
     headings = SHEET.worksheet('premanuf').row_values(1)    # Get headings for the sushi type
     print("Make the following sushi for the next day:\n")
@@ -219,11 +225,11 @@ def main():
     new_surplus_data = calculateing_surplus_data(sales_data)  # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)              # Pass datat to the function
     sales_columns = get_last_3_sales()
-    premanuf_data = calculate_premanuf_data(sales_columns)
+    premanuf_data = calculate_premanuf_data(sales_columns)      # Calculate the averege of the latest 3 sales.
     update_premanuf_worksheet(premanuf_data)
-    premanuf_values = get_premanuf_values(premanuf_data)
+    premanuf_values = get_premanuf_values(premanuf_data)    # Update premanuf data to worksheet
     print(premanuf_values)
-    get_data_deleted()
+    get_data_deleted()                                         # Delet the lastes row of data in worksheet.
 
 
 get_enter_input()
