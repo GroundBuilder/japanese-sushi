@@ -22,13 +22,13 @@ def get_enter_input():                         # Ask if user want to put in toda
     Ask if user want to put in todays sales.
     """
     print("Do you want to enter toadays sushi sales?\n")
-    result_del = (input("Enter (y/n): \n")).upper()
-    if result_del == "Y":
-        print(f"\nYou pressed: {result_del}\n")
+    input_start = (input("Enter (y/n): \n")).upper()
+    if input_start == "Y":
+        print(f"\nYou pressed: {input_start}\n")
         print("\nYou will enter now!\n")
         main()
 
-    elif result_del == "N":
+    elif input_start == "N":
         print("\nWelcome back next time!\n")
 
     else:
