@@ -162,19 +162,20 @@ def get_data_deleted():                         # Ask if user whant to delet the
     """
     Ask if its true, else will delete the data that was just inputed.
     """
-    print("Do you want to delete?")
+    print("Do you want to delete your input?")
     result_del = (input("Enter (y/n): \n")).upper()
     if result_del == "Y":
         print(f"\nYou pressed: {result_del}\n")
         check_validation_delete()
-        print("\nData has been deleted")
+        print("\nData has been deleted\n")
+        print("\nYou will now go back and enter the correct sales for today...")
+        main()
 
     elif result_del == "N":
-        print("\nPress Enter to quit...\n")
+        print("\nWelcome back next salesday!!!\n")
         
     else:
         get_data_deleted()
-    input("\nPress any key to quit...\n")
 
 
 def check_validation_delete():                      # When function calls it delete the last row in the selected sheets.
@@ -182,11 +183,11 @@ def check_validation_delete():                      # When function calls it del
     rows_sur = surplus_worksheet.row_count
     surplus_worksheet.delete_rows(rows_sur)
     premanuf_worksheet = SHEET.worksheet("premanuf")
-    rows_pre = remanuf_worksheet.row_count
+    rows_pre = premanuf_worksheet.row_count
     premanuf_worksheet.delete_rows(rows_pre)
-    ales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet = SHEET.worksheet("sales")
     rows_sal = sales_worksheet.row_count
-    sales_worksheet.delete_rows(row_sal)
+    sales_worksheet.delete_rows(rows_sal)
 
 
 def main():
