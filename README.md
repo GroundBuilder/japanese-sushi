@@ -85,7 +85,8 @@ User story
 
 ![PNG of progress](docs/readme_images/herokuapp_correct_and_delete.png)
 
-
+- Google worksheet to handle all data.
+    - [Worksheet](https://docs.google.com/spreadsheets/d/1GaaS7kAsvpr2OhWKtWS60sqKEOCdRK1qJWa1HjPW7Js/edit?usp=sharing)
 
 ## Flowchart
 ***
