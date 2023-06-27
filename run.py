@@ -21,7 +21,7 @@ def get_enter_input():                         # Ask if user want to put in toda
     """
     Ask if user want to put in todays sales.
     """
-    print("Do you want to enter toadays sushi sales?\n")
+    print("Do you want to enter todays sushi sales?\n")
     input_start = (input("Enter (y/n): \n")).upper()
     if input_start == "Y":
         print(f"\nYou pressed: {input_start}\n")
@@ -229,7 +229,7 @@ def main():
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)    # Update premanuf data to worksheet
     print(premanuf_values)
-    get_data_deleted()                                         # Delet the lastes row of data in worksheet.
+    get_data_deleted()                                         # Delet the latest row of data in worksheet.
 
 
 get_enter_input()
