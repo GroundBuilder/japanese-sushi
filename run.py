@@ -91,6 +91,14 @@ def input_of_tips():
         data_str = input("Total ampunt of tip today: \n")
         print(f"You provided this: {data_str}")
 
+        tip_data = data_str
+
+        if check_validation_tip_data(tip_data):
+            print("Tip is counted!")
+            break
+
+    return tip_data
+
 
 def check_validation_data(values):
     """
@@ -106,6 +114,18 @@ def check_validation_data(values):
             raise ValueError(
                 f"Expected 5 values, you provided {len(values)}.\n"
             )
+    except ValueError as e:
+        print(f"Invalid data: {e}Please try again.\n")
+        return False
+
+    return True
+
+
+def check_validation_tip_data(tips):
+
+    try:
+        if type(tips) == float:                            # Provide an error if user don't add 5 values.
+            print("its float")
     except ValueError as e:
         print(f"Invalid data: {e}Please try again.\n")
         return False
