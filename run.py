@@ -21,18 +21,43 @@ def get_enter_input():                         # Ask if user want to put in toda
     """
     Ask if user want to put in todays sales.
     """
-    print("Do you want to enter todays sushi sales?\n")
-    input_start = (input("Enter (y/n): \n")).upper()
-    if input_start == "Y":
-        print(f"\nYou pressed: {input_start}\n")
-        print("\nYou will enter now!\n")
-        main()
+    print("Do you want to enter todays sushi sales and tips?\n")
+    input_firs_question = (input("Enter (y/n): \n")).upper()
+    if input_firs_question == "Y":
+        print(f"\nYou pressed: {input_firs_question}\n")
+        print("\nYou will now choose what you want to enter:\n(1)Todays sales?\n(2)Todays tips?")
+        spread_all_tips()
 
-    elif input_start == "N":
+    elif input_firs_question == "N":
         print("\nWelcome back next time!\n")
 
     else:
         main()
+
+
+    # print("Do you want to enter todays sushi sales?\n")
+    # input_start = (input("Enter (y/n): \n")).upper()
+    # if input_start == "Y":
+    #     print(f"\nYou pressed: {input_start}\n")
+    #     print("\nYou will now enter!\n")
+    #     main()
+
+    # elif input_start == "N":
+    #     print("\nWelcome back next time!\n")
+
+    # else:
+    #     main()
+
+def spread_all_tips():
+    input_first_numbers = (input("Press (1) or (2): \n"))
+    if input_first_numbers == 1:
+        get_all_sales_data()
+
+    elif input_first_numbers == 2:
+        input_of_tips()
+
+    else:
+        spread_all_tips()
 
 
 def get_all_sales_data():
@@ -42,7 +67,7 @@ def get_all_sales_data():
     """
     while True:                                         # Makes a loop if user get the wrong input
 
-        print("\nWelcome, please enter todays lunch data.")      # Text for the user.
+        print("\nPlease enter todays lunch data.")      # Text for the user.
         print("In the order: Omakase, Moriawase, Salmon, Vegetarian, Poké Bowl")
         print("Separate the 5 numbers by commas.")
         print("Example: 38,30,25,20,24\n")
@@ -57,6 +82,14 @@ def get_all_sales_data():
             break
 
     return sales_data
+
+
+def input_of_tips():
+
+    while True:
+
+        data_str = input("Total ampunt of tip today: \n")
+        print(f"You provided this: {data_str}")
 
 
 def check_validation_data(values):
@@ -219,6 +252,7 @@ def check_validation_delete():                      # When function calls it del
 
 
 def main():
+    tip = spread_all_tips()
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                  # Make the list values to numbers instead of strings value"
     update_sales_worksheet(sales_data)                       # Pass data to the function upsate_sales_worksheet.
