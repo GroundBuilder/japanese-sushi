@@ -50,10 +50,10 @@ def get_enter_input():                         # Ask if user want to put in toda
 
 def spread_all_tips():
     input_first_numbers = (input("Press (1) or (2): \n"))
-    if input_first_numbers == 1:
+    if input_first_numbers == "1":
         get_all_sales_data()
 
-    elif input_first_numbers == 2:
+    elif input_first_numbers == "2":
         input_of_tips()
 
     else:
@@ -125,7 +125,7 @@ def check_validation_tip_data(tips):
 
     try:
         if type(tips) == float:                            # Provide an error if user don't add 5 values.
-            print("its float")
+            print("Its float")
     except ValueError as e:
         print(f"Invalid data: {e}Please try again.\n")
         return False
@@ -272,7 +272,7 @@ def check_validation_delete():                      # When function calls it del
 
 
 def main():
-    tip = spread_all_tips()
+    tips = spread_all_tips()
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                  # Make the list values to numbers instead of strings value"
     update_sales_worksheet(sales_data)                       # Pass data to the function upsate_sales_worksheet.
