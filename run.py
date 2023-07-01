@@ -122,13 +122,18 @@ def check_validation_data(values):
 
 
 def check_validation_tip_data(tips):
-
-    try:
-        if type(tips) == float:                            # Provide an error if user don't add 5 values.
+    """
+    Checks if the input is a valid float number.
+    If it's not valid, runs a while loop until the correct input is made.
+    """
+    while True:
+        try:
+            tips = float(tips)                            # Provide an error if user don't add 5 values.
             print("Its float")
-    except ValueError as e:
-        print(f"Invalid data: {e}Please try again.\n")
-        return False
+            break 
+        except ValueError:
+            print(f"Invalid data: {tips} Please try again.\n")
+            tips = input("Enter a number: \n")
 
     return True
 
@@ -275,6 +280,7 @@ def main():
     tips = spread_all_tips()
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                  # Make the list values to numbers instead of strings value"
+    
     update_sales_worksheet(sales_data)                       # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data)  # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)              # Pass datat to the function
