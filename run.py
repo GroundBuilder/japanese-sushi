@@ -128,11 +128,11 @@ def check_validation_tip_data(tips):
     """
     while True:
         try:
-            tips = float(tips)                            # Provide an error if user don't add 5 values.
+            tips = float(tips)
             print("Its float")
             break 
         except ValueError:
-            print(f"Invalid data: {tips} Please try again.\n")
+            print(f"Invalid data: {tips} Please try again.\n")   # Provide an error if user don't add add a float number.
             tips = input("Enter a number: \n")
 
     return True
@@ -219,8 +219,8 @@ def split_tips_between(tips):
         split_tip = tips / 6.0
         split_tips.append(split_tip)
         tips -= split_tip
-        print(tips)
-    return split_values
+        print(split_tips)
+    return split_tips
 
 
 
@@ -316,7 +316,7 @@ def main():
     premanuf_data = calculate_premanuf_data(sales_columns)      # Calculate the averege of the latest 3 sales.
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)    # Update premanuf data to worksheet
-    divided_tips = split_tips_between()
+    divided_tips = split_tips_between(tips)
     print(divided_tips)
     update_tips_worksheet(divided_tips)
     print(premanuf_values)
