@@ -63,7 +63,7 @@ def spread_all_tips():
 def get_all_sales_data():
     """
     User make input of how much the sold after 1pm.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modified by me).
     """
     while True:                                         # Makes a loop if user get the wrong input
 
@@ -106,7 +106,7 @@ def check_validation_data(values):
     If it's not correct, run a while loop till the
     correct input is made. Explane what typ of input come
     and put out to the terminal what its needed.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modified by me).
     """
     try:
         [int(value.strip()) for value in values]        # Provide the value to be a integer and remove white spaces.
@@ -142,7 +142,7 @@ def update_sales_worksheet(data):                       # Function to add data t
     """
     Update  the sales worksheet, adds a new row in the worksheet
     with the list of data the user have provided.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modified by me).
     """
     print("Updating the sales worksheet...\n")
     sales_worksheet = SHEET.worksheet("sales")
@@ -154,7 +154,7 @@ def update_sureplus_worksheet(data):                # Function to add surplus da
     """
     Update  the surplus worksheet, adds a new row in the worksheet
     with the list of data the calculation have provided.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modfied by me).
     """
     print("Updating the surlplus worksheet...\n")
     surplus_worksheet = SHEET.worksheet("surplus")
@@ -166,10 +166,22 @@ def update_premanuf_worksheet(data):                # Function to add premanuf d
     """
     Update  the premanuf worksheet, adds a new row in the worksheet
     with the list of data the calculation have provided.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modified by me).
     """
     print("Updating the premanuf worksheet...\n")
     premanuf_worksheet = SHEET.worksheet("premanuf")
+    premanuf_worksheet.append_row(data)
+    print("Your premanuf is updated successfully.\n")
+
+
+def update_tips_worksheet(data):                # Function to add premanuf data to worksheet
+    """
+    Update  the premanuf worksheet, adds a new row in the worksheet
+    with the list of data the calculation have provided.
+    Cred. CI - Love sandwiches(Modified by me).
+    """
+    print("Updating the tips worksheet...\n")
+    premanuf_worksheet = SHEET.worksheet("tips")
     premanuf_worksheet.append_row(data)
     print("Your premanuf is updated successfully.\n")
 
@@ -182,7 +194,7 @@ def calculateing_surplus_data(sales_row):
     while they made more sushi.
 
     This function calculate how much that have been wasted or made this day.
-    Cred. CI - Love sandwiches.
+    Cred. CI - Love sandwiches(Modified by me).
     """
     print("Calculating the sureplus data...\n")
 
@@ -197,10 +209,26 @@ def calculateing_surplus_data(sales_row):
     return surplus_data
 
 
+def split_tips_between(tips):
+    """
+    Split the tips between 6 coworkers that works at the resturant.
+    """
+    print("Spliting tips between workers...\n")
+    split_tips = []
+    for t in range(6):
+        split_tip = tips / 6.0
+        split_tips.append(split_tip)
+        tips -= split_tip
+        print(tips)
+    return split_values
+
+
+
+
 def get_last_3_sales():
     """
     This collect the last 3 columns of data from the sales worksheet
-    for eash sushi-type. Cred. CI - Love sandwiches.
+    for eash sushi-type. Cred. CI - Love sandwiches(Modified by me).
     """
     sales = SHEET.worksheet("sales")                # Get data from the worksheet
     columns = []                                    # Empty variable
@@ -215,7 +243,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
     """
     Finds the average premanufacturing of 3 and
     the value for each item.
-    Then adding aditional 5%. Cred. CI - Love sandwiches.
+    Then adding aditional 5%. Cred. CI - Love sandwiches(Modified by me).
     """
     print("Calculating premanuf data...\n")
 
@@ -231,7 +259,7 @@ def calculate_premanuf_data(data):                  # Calculat the premanufactur
 
 def get_premanuf_values(data):                  # Get visual for user what to make next day
     """
-    Print to user the calculated premanuf numbers for each sushi. Cred. CI - Love sandwiches.
+    Print to user the calculated premanuf numbers for each sushi. Cred. CI - Love sandwiches(Modified by me).
     """
     headings = SHEET.worksheet('premanuf').row_values(1)    # Get headings for the sushi type
     print("Make the following sushi for the next day:\n")
@@ -280,7 +308,7 @@ def main():
     tips = spread_all_tips()
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                  # Make the list values to numbers instead of strings value"
-    
+
     update_sales_worksheet(sales_data)                       # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data)  # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)              # Pass datat to the function
@@ -288,6 +316,9 @@ def main():
     premanuf_data = calculate_premanuf_data(sales_columns)      # Calculate the averege of the latest 3 sales.
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)    # Update premanuf data to worksheet
+    divided_tips = split_tips_between()
+    print(divided_tips)
+    update_tips_worksheet(divided_tips)
     print(premanuf_values)
     get_data_deleted()                                         # Delet the latest row of data in worksheet.
 
