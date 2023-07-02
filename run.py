@@ -21,43 +21,32 @@ def get_enter_input():                         # Ask if user want to put in toda
     """
     Ask if user want to put in todays sales.
     """
-    print("Do you want to enter todays sushi sales and tips?\n")
+    print("Welcome to Japanese Sushi terminal!\nDo you want to continue?\n")
     input_firs_question = (input("Enter (y/n): \n")).upper()
+    # print(f"\nYou pressed: {input_firs_question}\n")
     if input_firs_question == "Y":
-        print(f"\nYou pressed: {input_firs_question}\n")
-        print("\nYou will now choose what you want to enter:\n(1)Todays sales?\n(2)Todays tips?")
+        print("\nJapanese Sushi Terminal Menu:\nWhat do you want to register?\n1. Today's sales\n2. Today's tips")
         spread_all_tips()
 
     elif input_firs_question == "N":
         print("\nWelcome back next time!\n")
 
     else:
-        main()
+        print("Invalid input, try again!\n")
+        get_enter_input()
 
 
-    # print("Do you want to enter todays sushi sales?\n")
-    # input_start = (input("Enter (y/n): \n")).upper()
-    # if input_start == "Y":
-    #     print(f"\nYou pressed: {input_start}\n")
-    #     print("\nYou will now enter!\n")
-    #     main()
-
-    # elif input_start == "N":
-    #     print("\nWelcome back next time!\n")
-
-    # else:
-    #     main()
 
 def spread_all_tips():
-    input_first_numbers = (input("Press (1) or (2): \n"))
+    input_first_numbers = (input("Press number and Enter:\n"))
     if input_first_numbers == "1":
-        get_all_sales_data()
+        main_sales()
 
     elif input_first_numbers == "2":
-        input_of_tips()
+        main_tip()
 
     else:
-        spread_all_tips()
+        get_enter_input()
 
 
 def get_all_sales_data():
@@ -174,16 +163,16 @@ def update_premanuf_worksheet(data):                # Function to add premanuf d
     print("Your premanuf is updated successfully.\n")
 
 
-def update_tips_worksheet(data):                # Function to add premanuf data to worksheet
-    """
-    Update  the premanuf worksheet, adds a new row in the worksheet
-    with the list of data the calculation have provided.
-    Cred. CI - Love sandwiches(Modified by me).
-    """
-    print("Updating the tips worksheet...\n")
-    premanuf_worksheet = SHEET.worksheet("tips")
-    premanuf_worksheet.append_row(data)
-    print("Your premanuf is updated successfully.\n")
+# def update_tips_worksheet(data):                # Function to add premanuf data to worksheet
+#     """
+#     Update  the premanuf worksheet, adds a new row in the worksheet
+#     with the list of data the calculation have provided.
+#     Cred. CI - Love sandwiches(Modified by me).
+#     """
+#     print("Updating the tips worksheet...\n")
+#     premanuf_worksheet = SHEET.worksheet("tips")
+#     premanuf_worksheet.append_row(data)
+#     print("Your premanuf is updated successfully.\n")
 
 
 def calculateing_surplus_data(sales_row):
@@ -219,6 +208,7 @@ def split_tips_between(tips):
         split_tip = tips / 6.0
         split_tips.append(split_tip)
         tips -= split_tip
+        print("Split tips")
         print(split_tips)
     return split_tips
 
@@ -275,14 +265,13 @@ def get_data_deleted():                         # Ask if user whant to delet the
     """
     Ask if its true, else will delete the data that was just inputed.
     """
-    print("Do you want to delete your input?")
-    result_del = (input("Enter (y/n): \n")).upper()
+    result_del = (input("\nDo you want to delete your input? Enter (y/n): \n")).upper()
     if result_del == "Y":
         print(f"\nYou pressed: {result_del}\n")
         check_validation_delete()
         print("\nData has been deleted\n")
         print("\nYou will now go back and enter the correct sales for today...")
-        main()
+        main_sales()
 
     elif result_del == "N":
         print("\nWelcome back next salesday!!!\n")
@@ -304,11 +293,9 @@ def check_validation_delete():                      # When function calls it del
     sales_worksheet.delete_rows(rows_sal)
 
 
-def main():
-    tips = spread_all_tips()
+def main_sales():
     data = get_all_sales_data()
     sales_data = [int(num) for num in data]                  # Make the list values to numbers instead of strings value"
-
     update_sales_worksheet(sales_data)                       # Pass data to the function upsate_sales_worksheet.
     new_surplus_data = calculateing_surplus_data(sales_data)  # Sett the values to the variable
     update_sureplus_worksheet(new_surplus_data)              # Pass datat to the function
@@ -316,11 +303,28 @@ def main():
     premanuf_data = calculate_premanuf_data(sales_columns)      # Calculate the averege of the latest 3 sales.
     update_premanuf_worksheet(premanuf_data)
     premanuf_values = get_premanuf_values(premanuf_data)    # Update premanuf data to worksheet
-    divided_tips = split_tips_between(tips)
-    print(divided_tips)
-    update_tips_worksheet(divided_tips)
     print(premanuf_values)
     get_data_deleted()                                         # Delet the latest row of data in worksheet.
 
 
-get_enter_input()
+def main_tip():
+    input_of_tips()
+    check_validation_tip_data(tip_data)
+    tips = spread_all_tips()
+    divided_tips = split_tips_between(tips)
+    # print(divided_tips)
+    # update_tips_worksheet(divided_tips)
+
+
+def main_terminal():
+    get_enter_input()
+
+
+def main():
+    """
+    Run all program functions.
+    """
+    main_terminal()
+
+
+main()
