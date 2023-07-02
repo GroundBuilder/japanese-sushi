@@ -82,7 +82,7 @@ def input_of_tips():
 
         tip_data = data_str
 
-        if check_validation_tip_data(tip_data):
+        if check_validation_tip_data(tips):
             print("Tip is counted!")
             break
 
@@ -163,16 +163,16 @@ def update_premanuf_worksheet(data):                # Function to add premanuf d
     print("Your premanuf is updated successfully.\n")
 
 
-# def update_tips_worksheet(data):                # Function to add premanuf data to worksheet
-#     """
-#     Update  the premanuf worksheet, adds a new row in the worksheet
-#     with the list of data the calculation have provided.
-#     Cred. CI - Love sandwiches(Modified by me).
-#     """
-#     print("Updating the tips worksheet...\n")
-#     premanuf_worksheet = SHEET.worksheet("tips")
-#     premanuf_worksheet.append_row(data)
-#     print("Your premanuf is updated successfully.\n")
+def update_tips_worksheet(data):                # Function to add tips data to worksheet
+    """
+    Update  the premanuf worksheet, adds a new row in the worksheet
+    with the list of data the calculation have provided.
+    Cred. CI - Love sandwiches(Modified by me).
+    """
+    print("Updating the tips worksheet...\n")
+    premanuf_worksheet = SHEET.worksheet("tips")
+    premanuf_worksheet.append_row(data)
+    print("Your premanuf is updated successfully.\n")
 
 
 def calculateing_surplus_data(sales_row):
@@ -309,11 +309,13 @@ def main_sales():
 
 def main_tip():
     input_of_tips()
-    check_validation_tip_data(tip_data)
+    check_validation_tip_data(tips)
+    split_tips_between()
     tips = spread_all_tips()
     divided_tips = split_tips_between(tips)
+    update_tips_worksheet(divided_tips)
     # print(divided_tips)
-    # update_tips_worksheet(divided_tips)
+    
 
 
 def main_terminal():
